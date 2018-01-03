@@ -66,7 +66,7 @@ public class Main {
 
 
         fenetre.setTitle("Votre Devis");
-        fenetre.setSize(1500, 850);
+        fenetre.setSize(1800, 1500);
         fenetre.setLocationRelativeTo(null);
         fenetre.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         fenetre.setResizable(true);

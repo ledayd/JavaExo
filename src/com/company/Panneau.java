@@ -22,9 +22,7 @@ public class Panneau extends JPanel implements Scrollable {
     JTextPane textPane2 = new JTextPane();
     JScrollPane pane = new JScrollPane(this);
 
-    {
-
-    }
+    //Travaux de plomberie	Équipements plomberie : tubes de cuivre, tubes PVC, petites fournitures (raccords, colliers), vannes d'arrêt raccordement sur colonne immeuble.	485	1	485
 
 
     public void paintComponent(Graphics g) {
@@ -121,8 +119,13 @@ public class Panneau extends JPanel implements Scrollable {
         model.addColumn("quantite");
         model.addColumn("prixHT");
         JTable table = new JTable(model);
+
         model.addRow(new Object[]{table.getColumnName(0), table.getColumnName(1), table.getColumnName(2), table.getColumnName(3), table.getColumnName(4)});
         model.addRow(new Object[]{"","","","",""});
+
+
+
+
 
         //table.setAutoResizeMode(JTable.AUTO_RESIZE_ALL_COLUMNS);
 
@@ -141,8 +144,12 @@ public class Panneau extends JPanel implements Scrollable {
         String prixHT = "";
 
 
-        for (Section section : Main.devis.getSections()
-                ) {
+
+//        for (Section section : Main.devis.getSections()
+//                ) {
+
+
+            Section section = Main.devis.getSections().get(0);
 
             for (Lot lot : section.getLots()
                     ) {
@@ -264,13 +271,21 @@ public class Panneau extends JPanel implements Scrollable {
 
             }
 
-        }
 
-        table.setBounds(100, 690, 800, 800);
+
+        table.setBounds(120, 690, 800, 3800);
+
+        table.setAutoResizeMode(JTable.AUTO_RESIZE_OFF);
+        table.getColumnModel().getColumn(0).setPreferredWidth(200);
+        table.getColumnModel().getColumn(1).setPreferredWidth(200);
+        table.getColumnModel().getColumn(2).setPreferredWidth(200);
+        table.getColumnModel().getColumn(3).setPreferredWidth(200);
+        table.getColumnModel().getColumn(4).setPreferredWidth(200);
+
         this.add(table);
-        System.out.println(table.getAutoResizeMode());
+        //System.out.println(table.getAutoResizeMode());
         //table.setAutoResizeMode(JTable.AUTO_RESIZE_ALL_COLUMNS);
-        System.out.println(table.getAutoResizeMode());
+        //System.out.println(table.getAutoResizeMode());
 
     }
 
